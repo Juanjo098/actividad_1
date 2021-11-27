@@ -111,22 +111,28 @@ formulario.addEventListener('submit', (e) =>{
 
     // Se valida el estado de la bandera "validado"
     if (validado){
-         // Se seleccionan todos los inputs del formulario
+        // Se resetena las variables que validan que todos los campos hayan sido llenados
+        inputs.nombre = false;
+        inputs.correo = false;
+        inputs.telefono = false;
+        inputs.mensaje = false;
+        // Se seleccionan todos los inputs del formulario
         document.querySelectorAll('#form .form-input').forEach((input) =>{
         // Se presenta el contenido de los inputs
         console.log(input.value);
-    });
-    // Se remuve la clase "active" de todos los labels dentro del formulario
-    document.querySelectorAll('.campo .label').forEach((label) =>{
-        label.classList.remove('active');
-    });
-    // Mensaje que confirma el envio de los datos
-    alert("Enviado correctamente");
-    // Se borra el contenido de todos los inputs del formulario
-    formulario.reset();
+        });
+        // Se remuve la clase "active" de todos los labels dentro del formulario
+        document.querySelectorAll('.campo .label').forEach((label) =>{
+            label.classList.remove('active');
+        });
+        
+        // Mensaje que confirma el envio de los datos
+        alert("Enviado correctamente");
+        // Se borra el contenido de todos los inputs del formulario
+        formulario.reset();
     }
     else
         // Mensaje de error presentado si se encontraron uno o más inpus vacíos
         alert("Asegúrse de que ningún campo está vacío");
-})
+});
 
